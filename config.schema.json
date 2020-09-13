@@ -12,9 +12,14 @@
         "required": true
       },
       "sensor": {
-        "title": "Sensor Number",
+        "title": "Sensor ID",
         "type": "number",
         "required": true
+      },
+      "key": {
+        "title": "Private Sensor Key",
+        "type": "string",
+        "required": false
       },
       "averages": {
         "title": "Reading Averages (default = realtime)",

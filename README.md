@@ -54,6 +54,7 @@ to the `accessories` section. As an example:
     {
         "accessory": "PurpleAirSensor",
         "sensor": "54321",
+        "key": "ABCDEF1234567890",
         "name": "PurpleAir Outdoor Sensor",
         "averages": "10m"
     }
@@ -63,8 +64,9 @@ to the `accessories` section. As an example:
 You can set the following fields:
 
 - `accessory` (required): must be `PurpleAirSensor`
-- `sensor` (required): the sensor number. Find the sensor number by going to <a href='https://www.purpleair.com/map'>PurpleAir's map</a> -> click on a sensor -> Look at the URL. It's the number right after 'select='.
+- `sensor` (required): the sensor ID. Find the sensor ID by going to <a href='https://www.purpleair.com/map'>PurpleAir's map</a> -> click on a sensor -> Look at the URL. It's the number right after 'select='.
 - `name` (required): name of the sensor.
+- `key` (optional): for private sensors, the key required to access it.
 - `averages` (optional, default realtime): sensor reading averages. Supports the following values:
   - `realtime`
   - `10m`: 10 Minute Average

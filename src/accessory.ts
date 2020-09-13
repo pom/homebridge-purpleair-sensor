@@ -32,6 +32,7 @@ class PurpleAirSensor implements AccessoryPlugin {
   private readonly log: (message: string) => void;
   private readonly name: string;
   private readonly sensor: string;
+  private readonly key?: string;
 
   private readonly averages: string;
 
@@ -47,6 +48,7 @@ class PurpleAirSensor implements AccessoryPlugin {
     this.logger = logger;
     this.sensor = config.sensor;
     this.name = config.name;
+    this.key = config.key;
     this.service = new hap.Service.AirQualitySensor(this.name);
 
     if (config.updateIntervalSecs) {
@@ -91,7 +93,7 @@ class PurpleAirSensor implements AccessoryPlugin {
   }
 
   update() {
-    const url = 'https://www.purpleair.com/json?show=' + this.sensor;
+    const url = 'https://www.purpleair.com/json?show=' + this.sensor + (this.key ? `&key=${this.key}` : '');
 
     if (this.lastReading !== undefined && this.lastReading.updateTimeMs > Date.now() - PurpleAirSensor.MIN_UPDATE_INTERVAL_MS) {
       this.log(`Skipping a fetch because the last update was ${Date.now() - this.lastReading.updateTimeMs} ms ago`);
