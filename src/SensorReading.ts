@@ -45,11 +45,11 @@ export class SensorReading {
     // This calculation was lifted from https://github.com/SANdood/homebridge-purpleair.
     if (aqi === undefined) {
       return 0; // Error or unknown response
-    } else if (aqi <= 50) {
+    } else if (aqi <= 10) {
       return 1; // Return EXCELLENT
-    } else if (aqi <= 100) {
+    } else if (aqi <= 50) {
       return 2; // Return GOOD
-    } else if (aqi <= 150) {
+    } else if (aqi <= 100) {
       return 3; // Return FAIR
     } else if (aqi <= 200) {
       return 4; // Return INFERIOR
